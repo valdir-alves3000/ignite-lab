@@ -5,13 +5,14 @@ import {
   Image,
   Lightning,
 } from "phosphor-react";
+import imgCode from "../assets/code-mockup-perfil.png";
 
 export function Home() {
   return (
     <div className="flex-1">
       <div className="bg-black flex justify-center">
         <div className="h-full w-full max-w-[1100px] max-h-[68vh] aspect-video">
-          <img src="/src/assets/code-mockup-perfil.png" alt="" />
+          <img src={imgCode} alt="" />
         </div>
       </div>
 
