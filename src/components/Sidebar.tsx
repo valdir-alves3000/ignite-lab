@@ -1,12 +1,25 @@
+import classNames from "classnames";
 import { useGetLessonsQuery } from "../graphql/generated";
 import { Lesson } from "./Lesson";
 
-export function Sidebar() {
+interface SidebarProps {
+  toggle: boolean;
+}
+
+export function Sidebar({ toggle }: SidebarProps) {
   const { data } = useGetLessonsQuery();
 
   console.log(data);
   return (
-    <aside className="w-[348px] bg-gray-700 p-6 border border-gray-600">
+    <aside
+      className={classNames(
+        "p-6 border-l border-gray-600 bg-gray-700 w-full md:w-[348px] absolute z-50 md:relative md:h-auto",
+        {
+          "left-[50%] translate-x-[50%] md:left-0 md:translate-x-0": !toggle,
+          "left-0 translate-x-0": toggle,
+        }
+      )}
+    >
       <span className="font-bold text-2xl pb-6 mb-6 border-b border-gray-500 block">
         Cronograma de aulas
       </span>
